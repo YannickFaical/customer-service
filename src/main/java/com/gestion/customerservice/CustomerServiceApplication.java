@@ -14,18 +14,18 @@ public class CustomerServiceApplication {
         SpringApplication.run(CustomerServiceApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner save(CustomerRepository customerRepository){
-        return args ->{
-            Customer customer=Customer.builder()
-                    .name("yannick")
-                    .email("ycompaore48@gmail.com")
-                    .build();
-            customerRepository.save(customer);
-
-            // Affichage pour vérifier si l'enregistrement est bien effectué
-            customerRepository.findAll().forEach(System.out::println);
-        };
-
-    }
+//    @Bean
+//    CommandLineRunner save(CustomerRepository customerRepository){
+//        return args ->{
+//            Customer customer=Customer.builder()
+//                    .name("yannick")
+//                    .email("ycompaore48@gmail.com")
+//                    .build();
+//            customerRepository.save(customer);
+//
+//            // Affichage pour vérifier si l'enregistrement est bien effectué
+//            customerRepository.findAll().forEach(System.out::println);
+//        };
+//
+//    }
 }
