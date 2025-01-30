@@ -21,12 +21,26 @@ public class CustomerController {
         return  customerRepository.findAll();
     }
 
+    @GetMapping("/customers/email/{email}")
+    public ResponseEntity<Customer> findCustomerByEmail(@PathVariable(required = true) String email) {
+        System.out.println("Email reçu : " + email);
+        Customer customer = customerRepository.findByEmail(email);
+        if (customer == null) {
+            System.out.println("Email inexistant ");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(customer);
+    }
+
+
+
     @PostMapping("/customers")
     public Customer saveCustomer(@RequestBody Customer customer){
        return customerRepository.save(customer);
     }
 
-    @DeleteMapping("/customers/{id}")
+
+    @DeleteMapping("/customers/id/{id}")
     public void deleteCustomer(@PathVariable Long id ){
       Optional<Customer> existingCustomer= customerRepository.findById(id);
 
