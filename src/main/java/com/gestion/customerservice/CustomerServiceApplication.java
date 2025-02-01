@@ -20,8 +20,6 @@ public class CustomerServiceApplication {
     @Bean
     CommandLineRunner save(CustomerRepository customerRepository){
         return args ->{
-
-
 for(int i =0;i<10;i++){
     Faker faker = new Faker();
             Customer customer=Customer.builder()
@@ -30,8 +28,6 @@ for(int i =0;i<10;i++){
                     .build();
             customerRepository.save(customer);
 }
-
-            // Affichage pour vérifier si l'enregistrement est bien effectué
             customerRepository.findAll().forEach(System.out::println);
         };
 

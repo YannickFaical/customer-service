@@ -15,7 +15,6 @@ import java.util.Optional;
 public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
-
     @GetMapping("/customers")
     public List<Customer> listCustomers(){
         return  customerRepository.findAll();
